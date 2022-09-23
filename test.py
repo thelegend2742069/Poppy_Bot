@@ -19,5 +19,9 @@ async def on_ready():
 async def test(ctx):
     await ctx.send("command test")
 
+@client.command(name='pic')
+async def pic(ctx):
+    await ctx.send("", file=discord.File('aglet.png'))
+
 
 client.run(token)
