@@ -5,13 +5,6 @@ from xkcd import comic
 from astropic import astropic
 
 
-rss_url = 'https://manga4life.com/rss/Onepunch-Man.xml'
-res = requests.get(rss_url)
-soup = BeautifulSoup(res.text, features="xml")
-
-title = soup.item.title.text
-link = soup.item.link.text
-image_url = soup.image.url.text
 
 token = '[BOT TOKEN HERE]'
 
@@ -40,14 +33,20 @@ async def test(ctx):
 @client.command(name='pic')
 async def pic(ctx):
     picture = discord.File("images/aglet.png")
-    embed = discord.Embed()
-    embed.set_image(url="attachment://images/aglet.png")
-    await ctx.send("AGLET", file=picture, embed=embed)
+    await ctx.send("AGLET", file=picture)
 
 
 
 @client.command(name="chapter")
 async def chap(ctx):
+    rss_url = 'https://manga4life.com/rss/Onepunch-Man.xml'
+    res = requests.get(rss_url)
+    soup = BeautifulSoup(res.text, features="xml")
+
+    title = soup.item.title.text
+    link = soup.item.link.text
+    image_url = soup.image.url.text
+
     embed = discord.Embed(
         title=title,
         url=link,
