@@ -13,7 +13,7 @@ title = soup.item.title.text
 link = soup.item.link.text
 image_url = soup.image.url.text
 
-token = 'MTAyMjc4MzQ1Njc1MDYxMjU0Mg.G-0-5j.cCnFjDPLVLQtx1ORvUOM4VjewHGUDP1bKJ0X_A'
+token = '[BOT TOKEN HERE]'
 
 
 intents = discord.Intents.default()
